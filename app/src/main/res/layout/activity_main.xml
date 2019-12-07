@@ -7,33 +7,16 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/scenario2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginLeft="158dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginRight="150dp"
-        android:layout_marginBottom="26dp"
-        android:text="Scenario 2"
-        app:layout_constraintBottom_toTopOf="@+id/scenario3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scenario1" />
-
-    <Button
-        android:id="@+id/scenario1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/playButton"
+        android:layout_width="148dp"
+        android:layout_height="91dp"
         android:layout_marginStart="158dp"
         android:layout_marginLeft="158dp"
         android:layout_marginTop="95dp"
         android:layout_marginEnd="150dp"
         android:layout_marginRight="150dp"
-        android:layout_marginBottom="17dp"
-        android:text="Scenario 1"
-        app:layout_constraintBottom_toTopOf="@+id/scenario2"
+        android:text="Play"
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -50,31 +33,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.053" />
 
-    <Button
-        android:id="@+id/scenario3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="154dp"
-        android:layout_marginLeft="154dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="154dp"
-        android:layout_marginRight="154dp"
-        android:text="Scenario 3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scenario2" />
-
     <TextView
         android:id="@+id/instructions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="105dp"
-        android:layout_marginBottom="102dp"
-        android:text="Pick a scenario. You will be asked to fill in parts of speech and other various word types. After you fill them in, you will be presented with a wacky mad lib paragraph!"
+        android:layout_marginBottom="212dp"
+        android:text="Press play. You will be asked to fill in parts of speech and other various word types. After you fill them in, you will be presented with a wacky mad lib paragraph!"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scenario3" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
