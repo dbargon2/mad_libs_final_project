@@ -9,8 +9,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static int scenario;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
