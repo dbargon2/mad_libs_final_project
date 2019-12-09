@@ -4,11 +4,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is the output screen. This is where the generated mad libs paragraph will be displayed."
-        android:textSize="36sp" />
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/backHome"

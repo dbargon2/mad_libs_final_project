@@ -21,7 +21,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InputActivity  extends AppCompatActivity {
+
+    private static JSONArray textVals;
+    private static List<EditText> typedInputs = new ArrayList<>();
+    private static String title;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +41,13 @@ public class InputActivity  extends AppCompatActivity {
         generateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(intent);
+                try {
+                    createMadLib();
+                    startActivity(intent);
+                } catch(JSONException e) {
+                    System.out.println("Something went wrong handling JSON generating the Mad Lib!");
+                }
+
             }
         });
     }
@@ -64,16 +77,40 @@ public class InputActivity  extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
-    public void setUpUI(JSONObject request) throws JSONException {
+    public void setUpUI(JSONObject response) throws JSONException {
+        textVals = response.getJSONArray("value");
+        title = response.getString("title");
+        typedInputs = new ArrayList<>();
         LinearLayout scrollChild = findViewById(R.id.scrollChild);
-        JSONArray inputs = request.getJSONArray("blanks");
+        scrollChild.removeAllViews();
+        JSONArray inputs = response.getJSONArray("blanks");
+
         for (int i = 0; i < inputs.length(); i++) {
             View inputChunk = getLayoutInflater().inflate(R.layout.chunk_input, scrollChild, false);
             TextView desc = inputChunk.findViewById(R.id.description);
             EditText input = inputChunk.findViewById(R.id.madLibInput);
             desc.setText(inputs.getString(i));
             input.setText("");
+            typedInputs.add(input);
             scrollChild.addView(inputChunk);
         }
     }
+
+    public static String createMadLib() throws JSONException {
+        String result = "";
+        for (int i = 0; i < textVals.length(); i++) {
+            if (i < typedInputs.size()) {
+                result = result + textVals.getString(i) + typedInputs.get(i).getText().toString();
+            } else {
+                result = result + textVals.getString(i);
+            }
+        }
+        return result;
+    }
+
+    public static String getMadLibsTitle() {
+        return title;
+    }
+
+
 }
